@@ -4,7 +4,7 @@ module Administrate
   module Field
     class Number < Field::Base
       def to_s
-        data.nil? ? "-" : format_string % value
+        data.to_s.empty? ? "-" : format_string % value
       end
 
       private

@@ -24,6 +24,11 @@ describe Administrate::Field::Number do
       expect(int.to_s).to eq("3")
     end
 
+    it "will not throw an error if value is empty string" do
+      int = Administrate::Field::Number.new(:quantity, "", :show)
+      expect(int.to_s).to eq("-")
+    end
+
     context "with `prefix` option" do
       it "displays the given prefix" do
         number = number_with_options(13, prefix: "$")
